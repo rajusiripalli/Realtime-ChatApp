@@ -1,5 +1,15 @@
-import  '../../global.css';
-import { Stack } from "expo-router"
+import "../../global.css";
+import { Stack } from "expo-router";
 export default function RootLayout() {
-    return <Stack />
+  const isAuthenticated = true; // Replace with your auth logic
+  return (
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Protected guard={!isAuthenticated}>
+        <Stack.Screen name="(auth)" />
+      </Stack.Protected>
+      <Stack.Protected guard={isAuthenticated}>
+        <Stack.Screen name="(drawer)" />
+      </Stack.Protected>
+    </Stack>
+  );
 }

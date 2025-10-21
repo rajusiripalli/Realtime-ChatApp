@@ -1,11 +1,11 @@
 import { Link } from "expo-router";
 import { Text, View } from "react-native";
 
-export default function About() {
+export default function HomeScreen() {
     return (
         <View className="flex-1 items-center justify-center">
-            <Text className="text-3xl font-bold underline">About!</Text>
-            <Link href="/">Go to Home</Link>
+            <Text className="text-3xl font-bold underline">Settings</Text>
+   
         </View>
     )
 }
