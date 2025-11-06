@@ -10,9 +10,6 @@ export default function SignUpScreen() {
   const [emailAddress, setEmailAddress] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  const [firstName, setFirstName] = React.useState('');
-  const [lastName, setLastName] = React.useState('');
-
   const [pendingVerification, setPendingVerification] = React.useState(false);
   const [code, setCode] = React.useState('');
 
@@ -20,13 +17,13 @@ export default function SignUpScreen() {
   const onSignUpPress = async () => {
     if (!isLoaded) return;
 
+    console.log(emailAddress, password);
+
     // Start sign-up process using email and password provided
     try {
       await signUp.create({
         emailAddress,
         password,
-        firstName,
-        lastName,
       });
 
       // Send user an email with verification code
@@ -94,18 +91,6 @@ export default function SignUpScreen() {
   return (
     <View className='p-4 gap-4 bg-white flex-1'>
       <>
-        <TextInput
-          value={firstName}
-          placeholder='Joe'
-          onChangeText={(s) => setFirstName(s)}
-          className='border border-neutral-400 p-4 rounded-lg'
-        />
-        <TextInput
-          value={lastName}
-          placeholder='Doe'
-          onChangeText={(s) => setLastName(s)}
-          className='border border-neutral-400 p-4 rounded-lg'
-        />
         <TextInput
           autoCapitalize='none'
           value={emailAddress}
