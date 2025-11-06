@@ -70,7 +70,7 @@ export default function SignUpScreen() {
 
   if (pendingVerification) {
     return (
-      <View className='p-4 gap-4 bg-white flex-1'>
+      <View className='p-4 gap-4 bg-white flex-1 justify-center alignitems-center'>
         <Text className='text-2xl'>Verify your email</Text>
         <TextInput
           value={code}
@@ -89,7 +89,7 @@ export default function SignUpScreen() {
   }
 
   return (
-    <View className='p-4 gap-4 bg-white flex-1'>
+    <View className='p-4 gap-4 bg-white flex-1 justify-center alignitems-center'>
       <>
         <TextInput
           autoCapitalize='none'

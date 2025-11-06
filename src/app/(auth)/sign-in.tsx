@@ -41,7 +41,7 @@ export default function Page() {
   };
 
   return (
-    <View className='p-4 gap-4 bg-white flex-1'>
+    <View className='p-4 gap-4 bg-white flex-1 justify-center alignitems-center'>
       <TextInput
         autoCapitalize='none'
         value={emailAddress}
