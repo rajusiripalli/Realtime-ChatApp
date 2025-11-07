@@ -1,18 +1,19 @@
 import { View, Text, Button } from 'react-native';
 import { useAuth } from '@clerk/clerk-expo';
-import { supabase } from '@/supabase';
+import { useSupabase } from '@/providers/SupabaseProvider';
 
 export default function HomeScreen() {
   const { signOut } = useAuth();
 
+  const supabase = useSupabase();
+
   const testInsert = async () => {
     const {data, error} = await supabase
       .from('Test')
-      .insert([{ test: 'Test Insert name 2' }]);
+      .insert([{ test: 'Test Insert name 4' }]);
 
       console.log(error);
   }
-
   const testFetch = async () => {
     const {data, error} = await supabase
       .from('Test')
