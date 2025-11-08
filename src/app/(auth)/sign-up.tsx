@@ -7,6 +7,8 @@ export default function SignUpScreen() {
   const { isLoaded, signUp, setActive } = useSignUp();
   const router = useRouter();
 
+  const [firstName, setFirstName] = React.useState('');
+  const [lastName, setLastName] = React.useState('');
   const [emailAddress, setEmailAddress] = React.useState('');
   const [password, setPassword] = React.useState('');
 
@@ -24,6 +26,8 @@ export default function SignUpScreen() {
       await signUp.create({
         emailAddress,
         password,
+        firstName,
+        lastName,
       });
 
       // Send user an email with verification code
@@ -91,6 +95,23 @@ export default function SignUpScreen() {
   return (
     <View className='p-4 gap-4 bg-white flex-1 justify-center alignitems-center'>
       <>
+            
+        <TextInput
+          autoCapitalize='none'
+          value={firstName}
+          placeholder='First Name'
+          onChangeText={(firstName) => setFirstName(firstName)}
+          className='border border-neutral-400 p-4 rounded-lg'
+        />
+
+        <TextInput
+          autoCapitalize='none'
+          value={lastName}
+          placeholder='Last Name'
+          onChangeText={(lastName) => setLastName(lastName)}
+          className='border border-neutral-400 p-4 rounded-lg'
+        />
+
         <TextInput
           autoCapitalize='none'
           value={emailAddress}

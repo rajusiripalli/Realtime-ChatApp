@@ -10,7 +10,7 @@ export default function HomeScreen() {
   const testInsert = async () => {
     const {data, error} = await supabase
       .from('Test')
-      .insert([{ test: 'Test Insert name 4' }]);
+      .insert([{ test: 'Test Insert name 7' }]);
 
       console.log(error);
   }
