@@ -30,18 +30,18 @@ const SupabaseContext = createContext<SupabaseContextType>({
 
 export default function SupabaseProvider({ children }: PropsWithChildren) {
   const { session } = useSession();
-  const [supabase, setSupabase] = useState<SupabaseClient>(
+  const [supabase, setSupabase] = useState<SupabaseClient<Database>>(
     createClient(supabaseUrl, supabaseAnonKey)
   );
 
   useEffect(() => {
-    const newClient = createClient(supabaseUrl, supabaseAnonKey, {
+    const newClient = createClient<Database>(supabaseUrl, supabaseAnonKey, {
       auth: {
         ...(Platform.OS !== 'web' ? { storage: AsyncStorage } : {}),
         autoRefreshToken: true,
         persistSession: true,
         detectSessionInUrl: false,
-        lock: processLock,
+        // lock: processLock,
       },
       async accessToken() {
         return session?.getToken() ?? null;
