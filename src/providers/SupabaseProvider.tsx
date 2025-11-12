@@ -41,7 +41,7 @@ export default function SupabaseProvider({ children }: PropsWithChildren) {
         autoRefreshToken: true,
         persistSession: true,
         detectSessionInUrl: false,
-        // lock: processLock,
+        /// lock: processLock,
       },
       async accessToken() {
         return session?.getToken() ?? null;
